@@ -1,6 +1,5 @@
 cls
 
-cd ../
 md %1
 cd %1
 
@@ -93,6 +92,7 @@ echo }); >> App.js
 echo: >> App.js
 echo module.exports = App; >> App.js
 
+cd ../../
 call npm run build
 
 
