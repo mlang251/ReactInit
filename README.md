@@ -1,2 +1,32 @@
 # ReactInit
-A batch file for initializing React projects on Windows
+A batch script for initializing React projects on Windows
+
+Syntax:  
+_ReactInit.bat [folder name]_  
+Where _[folder name]_ is a user specified directory where the React project will be initialized
+
+Assuming the user has NodeJS and NPM installed, this batch script will do the following:  
+ 1. Initialize NPM
+ 2. Download React
+ 3. Download Babel
+ 4. Download Webpack
+ 5. Create the .babelrc configuration file  
+  * Allows Babel to transform React syntax
+ 6. Create the webpack.config.js
+  * Creates the html-webpack-plugin config object for copying the index.html file into a "build" directory  
+  This also injects the script tag which links to index.js
+  * Instructs Babel to transform the index.js root file from React syntax to JS syntax and place the output in the "build" directory
+ 7. Modifies package.json to create the following two NPM scripts:
+  1. npm run build: Will build the React app
+  2. npm run start: Will start the webpack-dev-server
+ 8. Creates the directories ./app/components
+ 9. In _./app_ creates the following:
+  1. An index.html file with a basic template
+  2. An index.js file that renders the main App component
+ 10. In _./app/components_ creates the following:
+  1. An App.js file which renders a "Hello World" h1
+ 11. Calls _npm run build_
+ 
+
+Following this, the user can call **_npm run start_** from the command prompt to run the Webpack server, which will allow for viewing the React app at [http://localhost:8080](http://localhost:8080)
+    
