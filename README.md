@@ -5,7 +5,11 @@ Syntax:
 _ReactInit.bat [folder name]_  
 Where _[folder name]_ is a user specified directory where the React project will be initialized
 
-Assuming the user has NodeJS and NPM installed, this batch script will do the following:  
+This script requires NPM which can be installed as part of the [NodeJS package](https://nodejs.org/en/)  
+Make sure you add the NodeJS directory to your computer's path variable
+
+
+This batch script will do the following:  
  1. Initialize NPM
  2. Download React
  3. Download Babel
