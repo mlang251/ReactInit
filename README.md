@@ -28,5 +28,5 @@ Assuming the user has NodeJS and NPM installed, this batch script will do the fo
  11. Calls _npm run build_
  
 
-Following this, the user can call **_npm run start_** from the command prompt to run the Webpack server, which will allow for viewing the React app at [http://localhost:8080](http://localhost:8080)
+Following this, the user can call **_npm run start_** from the command line to run the Webpack server, which will allow for viewing the React app at [http://localhost:8080](http://localhost:8080)
     
