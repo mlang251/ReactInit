@@ -3,7 +3,7 @@ A batch script for initializing React projects on Windows
 
 Syntax:  
 _ReactInit.bat [folder name]_  
-Where _[folder name]_ is a user specified directory where the React project will be initialized
+Where _[folder name]_ is an optional parameter which can specify a directory where the React project will be initialized
 
 This script requires NPM which can be installed as part of the [NodeJS package](https://nodejs.org/en/)  
 Make sure you add the NodeJS directory to your computer's path variable
@@ -28,7 +28,7 @@ This batch script will do the following:
   1. An index.html file with a basic template
   2. An index.js file that renders the main App component
  10. In _./app/components_ creates the following:
-  1. An App.js file which renders a "Hello World" h1
+  1. An App.js component which renders a "Hello World" h1
  11. Calls _npm run build_
  
 
