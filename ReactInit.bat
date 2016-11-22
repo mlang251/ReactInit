@@ -1,9 +1,11 @@
 echo off
 cls
 
+
 :: Enable command extensions so that the "if not defined" syntax becomes valid
 ::
 setlocal enableextensions
+
 
 :: Store the first parameter in a variable, if a parameter was not defined, set the variable equal to "newApp"
 ::
