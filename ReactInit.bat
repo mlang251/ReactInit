@@ -1,9 +1,15 @@
 echo off
 cls
+setlocal enableextensions
 
-cd ../
-md %1
-cd %1
+set folderName=%1
+if not defined folderName set foldername=newApp
+
+if not exist %folderName% (
+	md %folderName%
+)
+cd %folderName%
+
 
 call npm init -y
 call npm i -S react react-dom
