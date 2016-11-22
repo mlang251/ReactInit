@@ -1,3 +1,4 @@
+echo off
 cls
 
 cd ../
@@ -36,30 +37,21 @@ echo 	}, >> webpack.config.js
 echo 	plugins: [HTMLWebpackPluginConfig] >> webpack.config.js
 echo }; >> webpack.config.js
 
-echo { > package.json
-echo   "name": "reacttest", >> package.json
-echo   "version": "1.0.0", >> package.json
-echo   "description": "", >> package.json
-echo   "main": "index.js", >> package.json
-echo   "scripts": { >> package.json
-echo     "build": "webpack", >> package.json
-echo     "start": "webpack-dev-server" >> package.json
-echo   }, >> package.json
-echo   "author": "", >> package.json
-echo   "license": "ISC", >> package.json
-echo   "dependencies": { >> package.json
-echo     "react": "^15.4.0", >> package.json
-echo     "react-dom": "^15.4.0" >> package.json
-echo   }, >> package.json
-echo   "devDependencies": { >> package.json
-echo     "babel-core": "^6.18.2", >> package.json
-echo     "babel-loader": "^6.2.7", >> package.json
-echo     "babel-preset-react": "^6.16.0", >> package.json
-echo     "html-webpack-plugin": "^2.24.1", >> package.json
-echo     "webpack": "^1.13.3", >> package.json
-echo     "webpack-dev-server": "^1.16.2" >> package.json
-echo   } >> package.json
-echo } >> package.json
+for /f "tokens=1,* delims=:" %%G in (package.json) do (
+	if "%%H"=="" (
+		echo %%G >> temp.txt
+	) else (
+		echo %%G:%%H >> temp.txt
+	)
+	
+	if "%%G"=="  "scripts"" (
+		echo     "build": "webpack", >> temp.txt
+		echo     "start": "webpack-dev-server", >> temp.txt
+	)
+)
+
+type temp.txt > package.json
+del /q temp.txt
 
 md app\components
 cd app
