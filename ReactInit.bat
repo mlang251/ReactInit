@@ -26,14 +26,15 @@ cd %folderName%
 ::
 call npm init -y
 call npm i -S react react-dom
-call npm i -D babel-core babel-loader babel-preset-react
+call npm i -D babel-core babel-loader babel-preset-react babel-preset-es2015
+call npm i -S babel-polyfill
 call npm i -D webpack webpack-dev-server html-webpack-plugin
 
 
 :: Create the .babelrc configuration file
-:: This allows Babel to transform React into normal JS
+:: This allows Babel to transform JSX into normal JS and ES6 into ES5
 ::
-echo {presets: ['react']} > .babelrc
+echo {presets: ['react', 'es2015']} > .babelrc
 
 
 
