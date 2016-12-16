@@ -93,8 +93,8 @@ for /f "tokens=1,* delims=:" %%G in (package.json) do (
 	)
 	
 	if "%%G"=="  "scripts"" (
-		echo     "build": "webpack", >> temp.txt
-		echo     "start": "webpack-dev-server", >> temp.txt
+		echo     "build": "webpack -p", >> temp.txt
+		echo     "start": "webpack-dev-server --inline", >> temp.txt
 	)
 )
 
