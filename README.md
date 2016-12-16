@@ -12,14 +12,14 @@ Make sure you add the NodeJS directory to your computer's path variable
 This batch script will do the following:  
  1. Initialize NPM
  2. Download React
- 3. Download Babel
+ 3. Download Babel and Babel presets for React and ES6
  4. Download Webpack
  5. Create the .babelrc configuration file  
-  * Allows Babel to transform React syntax
+  * Allows Babel to transform JSX to JS and ES6 to ES5
  6. Create the webpack.config.js
   * Creates the html-webpack-plugin config object for copying the index.html file into a "build" directory  
   This also injects the script tag which links to index.js
-  * Instructs Babel to transform the index.js root file from React syntax to JS syntax and place the output in the "build" directory
+  * Instructs Babel to transform the index.js root file from JSX to JS and ES6 to ES5, and place a bundled output in the "build" directory
  7. Modifies package.json to create the following two NPM scripts:
   1. npm run build: Will build the React app
   2. npm run start: Will start the webpack-dev-server
