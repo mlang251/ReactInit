@@ -80,8 +80,8 @@ echo }; >> webpack.config.js
 :: Finally, package.json is overwritten with the contents of temp.txt and temp.txt is deleted
 ::
 :: The custom scripts are:
-::		npm run build - This will transform the React into regular JS and output the transformed files in the "build" folder
-::		npm run start - This will run the Webpack server, so that the user can view the React app at http://localhost:8080
+::		npm run build - This will transform the React app into production-ready minified JS and output the transformed files in the "build" folder
+::		npm run start - This will run the Webpack server with hot-loading, so that the user can view the React app at http://localhost:8080
 ::
 for /f "tokens=1,* delims=:" %%G in (package.json) do (
 	if "%%H"=="" (
