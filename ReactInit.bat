@@ -82,6 +82,7 @@ echo }; >> webpack.config.js
 ::
 :: The custom scripts are:
 ::		npm run build - This will transform the React app into production-ready minified JS and output the transformed files in the "build" folder
+::				This also creates a watcher so that any time a change is made to the app, Webpack will rebuild with those changes
 ::		npm run start - This will run the Webpack server with hot-loading, so that the user can view the React app at http://localhost:8080
 ::
 for /f "tokens=1,* delims=:" %%G in (package.json) do (
@@ -94,7 +95,7 @@ for /f "tokens=1,* delims=:" %%G in (package.json) do (
 	)
 	
 	if "%%G"=="  "scripts"" (
-		echo     "build": "webpack -p", >> temp.txt
+		echo     "build": "webpack -p -w", >> temp.txt
 		echo     "start": "webpack-dev-server --inline", >> temp.txt
 	)
 )
