@@ -26,8 +26,7 @@ cd %folderName%
 ::
 call npm init -y
 call npm i -S react react-dom
-call npm i -D babel-core babel-loader babel-preset-react babel-preset-es2015
-call npm i -S babel-polyfill
+call npm i -D babel-core babel-loader babel-preset-react babel-preset-es2015 babel-polyfill
 call npm i -D webpack webpack-dev-server html-webpack-plugin
 
 
@@ -61,7 +60,7 @@ echo     } >> webpack.config.js
 echo }); >> webpack.config.js
 echo: >> webpack.config.js
 echo module.exports = { >> webpack.config.js
-echo 	entry: __dirname + '/app/index.js', >> webpack.config.js
+echo 	entry: ['babel-polyfill', __dirname + '/app/index.js'], >> webpack.config.js
 echo 	module: { >> webpack.config.js
 echo 		loaders: [ >> webpack.config.js
 echo 			{ >> webpack.config.js
