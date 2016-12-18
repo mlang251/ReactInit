@@ -26,8 +26,8 @@ cd %folderName%
 ::
 call npm init -y
 call npm i -S react react-dom
-call npm i -D babel-core babel-loader babel-preset-react babel-preset-es2015 babel-polyfill
 call npm i -D webpack webpack-dev-server html-webpack-plugin
+call npm i -D babel-core babel-loader babel-preset-react babel-preset-es2015 babel-polyfill
 
 
 :: Create the .babelrc configuration file
@@ -160,13 +160,14 @@ echo export default App; >> App.js
 ::
 call npm run build
 
+cd %folderName%
 
 echo:
 echo:
 echo:
 echo:
 echo React app successfully built
-echo Navigate to the folder and call npm run start to run the Webpack server
+echo Call npm run start to run the Webpack server
 echo The app can be viewed at http://localhost:8080
 echo:
 echo:
