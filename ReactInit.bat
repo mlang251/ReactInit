@@ -50,6 +50,14 @@ echo 	template: __dirname + '/app/index.html', >> webpack.config.js
 echo 	filename: 'index.html', >> webpack.config.js
 echo 	inject: 'body' >> webpack.config.js
 echo }); >> webpack.config.js
+echo var UglifyJSPluginConfig = new webpack.optimize.UglifyJsPlugin({ >> webpack.config.js
+echo     compress: { >> webpack.config.js
+echo         warnings: false >> webpack.config.js
+echo     }, >> webpack.config.js
+echo     output: { >> webpack.config.js
+echo         comments: false >> webpack.config.js
+echo     } >> webpack.config.js
+echo }); >> webpack.config.js
 echo: >> webpack.config.js
 echo module.exports = { >> webpack.config.js
 echo 	entry: __dirname + '/app/index.js', >> webpack.config.js
@@ -63,10 +71,10 @@ echo 			} >> webpack.config.js
 echo 		] >> webpack.config.js
 echo 	}, >> webpack.config.js
 echo 	output: { >> webpack.config.js
-echo 		filename: 'transformed.js', >> webpack.config.js
+echo 		filename: 'bundle.js', >> webpack.config.js
 echo 		path: __dirname + '/build' >> webpack.config.js
 echo 	}, >> webpack.config.js
-echo 	plugins: [HTMLWebpackPluginConfig] >> webpack.config.js
+echo 	plugins: [HTMLWebpackPluginConfig, UglifyJSPluginConfig] >> webpack.config.js
 echo }; >> webpack.config.js
 
 
@@ -81,7 +89,7 @@ echo }; >> webpack.config.js
 :: Finally, package.json is overwritten with the contents of temp.txt and temp.txt is deleted
 ::
 :: The custom scripts are:
-::		npm run build - This will transform the React app into production-ready minified JS and output the transformed files in the "build" folder
+::		npm run build - This will transform the React app into production-ready minified JS and output the bundled files in the "build" folder
 ::				This also creates a watcher so that any time a change is made to the app, Webpack will rebuild with those changes
 ::		npm run start - This will run the Webpack server with hot-loading, so that the user can view the React app at http://localhost:8080
 ::
@@ -95,7 +103,7 @@ for /f "tokens=1,* delims=:" %%G in (package.json) do (
 	)
 	
 	if "%%G"=="  "scripts"" (
-		echo     "build": "webpack -p -w", >> temp.txt
+		echo     "build": "webpack --watch", >> temp.txt
 		echo     "start": "webpack-dev-server --inline", >> temp.txt
 	)
 )
