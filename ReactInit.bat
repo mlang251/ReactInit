@@ -160,15 +160,14 @@ echo export default App; >> App.js
 ::
 call npm run build
 
-cd %folderName%
 
 echo:
 echo:
 echo:
 echo:
 echo React app successfully built
-echo Call npm run start to run the Webpack server
-echo The app can be viewed at http://localhost:8080
+echo Navigate to ./%folderName% and call npm run start to run the Webpack server
+echo Once the package is built and the server is running, the app can be viewed at http://localhost:8080
 echo:
 echo:
 
