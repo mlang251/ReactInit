@@ -45,6 +45,7 @@ echo {presets: ['react', 'es2015']} > .babelrc
 :: Webpack will inject a script tag linking to transformed.js in the body of index.html
 ::
 echo var HTMLWebpackPlugin = require('html-webpack-plugin'); > webpack.config.js
+echo var webpack = require('webpack'); >> webpack.config.js
 echo var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({ >> webpack.config.js
 echo 	template: __dirname + '/app/index.html', >> webpack.config.js
 echo 	filename: 'index.html', >> webpack.config.js
@@ -103,7 +104,7 @@ for /f "tokens=1,* delims=:" %%G in (package.json) do (
 	)
 	
 	if "%%G"=="  "scripts"" (
-		echo     "build": "webpack --watch", >> temp.txt
+		echo     "build": "webpack", >> temp.txt
 		echo     "start": "webpack-dev-server --inline", >> temp.txt
 	)
 )
