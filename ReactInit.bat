@@ -134,9 +134,9 @@ echo ^</html^> >> index.html
 
 ::Create a basic index.js file to render the React App component
 ::
-echo var React = require('react'); > index.js
-echo var ReactDOM = require('react-dom'); >> index.js
-echo var App = require('./components/App'); >> index.js
+echo import React from 'react'; > index.js
+echo import ReactDOM from 'react-dom'; >> index.js
+echo import App from './components/App'; >> index.js
 echo: >> index.js
 echo ReactDOM.render(^<App /^>, document.getElementById('app')); >> index.js
 
@@ -145,15 +145,15 @@ cd components
 
 :: Create a basic App.js React component to render a "Hello World" h1
 ::
-echo var React = require('react'); > App.js
+echo import React from 'react'; > App.js
 echo: >> App.js
-echo var App = React.createClass({ >> App.js
-echo 	render: function() { >> App.js
+echo class App extends React.Component { >> App.js
+echo 	render() { >> App.js
 echo 		return ^<h1^>Hello World^</h1^>; >> App.js
 echo 	} >> App.js
-echo }); >> App.js
+echo } >> App.js
 echo: >> App.js
-echo module.exports = App; >> App.js
+echo export default App; >> App.js
 
 
 :: Transform the React files into regular JS
